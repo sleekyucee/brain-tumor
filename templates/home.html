@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Brain Tumor Classification</title>
+    <style>
+        body {
+            background-color: #f0f0f0; /* Set your desired background color */
+            font-family: Arial, sans-serif; /* Choose a font family */
+        }
+        h1 {
+            color: #333; /* Set text color for the title */
+            text-align: center;
+            margin-top: 30px;
+        }
+        h2 {
+            color: #444; /* Set text color for section headings */
+        }
+        table {
+            width: 50%;
+            margin: 0 auto;
+            border-collapse: collapse;
+            background-color: #fff; /* Set table background color */
+        }
+        th, td {
+            padding: 10px;
+            text-align: left;
+        }
+        th {
+            background-color: #555; /* Set header cell background color */
+            color: #fff; /* Set header text color */
+        }
+        tr:nth-child(even) {
+            background-color: #f2f2f2; /* Set alternate row background color */
+        }
+        p {
+            color: #333; /* Set text color for paragraphs */
+        }
+        .image-classifier {
+            text-align: center;
+            margin-top: 30px;
+        }
+        .upload-button {
+            background-color: #0077b6; /* Set button background color */
+            color: #fff; /* Set button text color */
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+        }
+        .upload-button:hover {
+            background-color: #005f8b; /* Set button background color on hover */
+        }
+    </style>
+</head>
+<body>
+    <h1>Real-Time Brain Tumor Classification</h1>
+
+    <h2>Model Metrics</h2>
+    <table>
+        <tr>
+            <th>Metric</th>
+            <th>Value [%]</th>
+        </tr>
+        <tr>
+            <td>Accuracy</td>
+            <td>{{ model_metrics["Accuracy"] }}</td>
+        </tr>
+        <tr>
+            <td>Specificity</td>
+            <td>{{ model_metrics["Specificity"] }}</td>
+        </tr>
+        <tr>
+            <td>Sensitivity</td>
+            <td>{{ model_metrics["Sensitivity"] }}</td>
+        </tr>
+        <tr>
+            <td>Precision</td>
+            <td>{{ model_metrics["Precision"] }}</td>
+        </tr>
+    </table>
+
+    <h2>Ethical Concerns</h2>
+    <p>{{ ethical_concerns }}</p>
+
+    <div class="image-classifier">
+        <h2>Image Classifier</h2>
+        <form action="/classify" method="post" enctype="multipart/form-data">
+            <input type="file" name="image_file">
+            <button class="upload-button" type="submit">Classify Image</button>
+        </form>
+    </div>
+</body>
+</html>
